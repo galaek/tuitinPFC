@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Mostrando Tweets con Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/resources/starter-template/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Información sobre Tweets #championstve</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template"> 
+        <h1>Template de test para mostrar info de Twitter </h1>
+		<p class="lead">Trendings Calculados! (merged list)</p>
+		<div id="mergedlist" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Palabras más usadas!</p>
+		<div id="myfirstchart" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Dobles Palabras más usadas!</p>
+		<div id="shortdoublelist" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Palabras keyword = "Ramos"!</p>
+		<div id="keywordramos" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Dobles Palabras keyword = "Ramos"!</p>
+		<div id="keywordramosdobles" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Palabras primera parte!</p>
+		<div id="primeraparte" style="height: 250px;"></div>
+		<br></br>
+		<p class="lead">Palabras segunda parte!</p>
+		<div id="segundaparte" style="height: 250px;"></div>
+		<br></br>
+<!--        <p class="lead">A continuación una lista del texto de todos los tweets con los que trabajamos</p>
+		<p>{{range .Tweets}} {{.Text}} </br></br> {{end}}</p> -->
+		<p class="lead">Lista de usuarios verificados con su numero de tweets</p>
+
+		<center>
+				<TABLE class="table-bordered table-condensed table-striped">
+					<TR>
+						<Th>Screen Name</Th> <TH>Num. Tweets</TH>
+					</TR>
+					<TR>
+						{{range .VerifiedsList}} <TD>{{.User.Screen_name}}</TD> <TD>{{.User.Value}}</TD> 
+					</TR> {{end}}
+				</TABLE>	
+		</center>		
+		<br></br>
+<!--		<p class="lead">Lista de usuarios verificados ordenados por ocurrencias</p>
+		<ul class="list-group">
+		  {{range .VerifiedsList}} <li class="list-group-item">{{.User.Screen_name}} - {{.User.Value}}</li> {{end}}
+		</ul>
+-->
+<!--		<p class="lead">Ahora TODAS las palabras por orden de ocurrencias</p>
+		<ul class="list-group">
+		  {{range .Lista}} <li class="list-group-item">{{.Word}} - {{.Value}}</li> {{end}}
+		</ul>
+-->
+		
+
+		
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+  </body>
+</html>
+	<script> 
+		new Morris.Bar({
+		  element: 'myfirstchart',
+		  data: [
+			{{range .ShortList}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#FF3333']
+		});
+	</script>
+	<script> 
+		new Morris.Bar({
+		  element: 'mergedlist',
+		  data: [
+			{{range .MergedList}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#FF3333']
+		});
+	</script>
+	<script> 
+		new Morris.Bar({
+		  element: 'shortdoublelist',
+		  data: [
+			{{range .ShortDoubleList}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#FF3333']
+		});
+	</script>
+	
+	<script> 
+		new Morris.Bar({
+		  element: 'keywordramos',
+		  data: [
+			{{range .ShortListKeyword}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#009900']
+		});
+	</script>
+	<script> 
+		new Morris.Bar({
+		  element: 'keywordramosdobles',
+		  data: [
+			{{range .ShortDoubleListKeyword}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#009900']
+		});
+	</script>
+	<script> 
+		new Morris.Bar({
+		  element: 'primeraparte',
+		  data: [
+			{{range .ShortListRange1}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#3333CC']
+		});
+	</script>
+	<script> 
+		new Morris.Bar({
+		  element: 'segundaparte',
+		  data: [
+			{{range .ShortListRange2}} { y: '{{.Word}}', a: {{.Value}} }, {{end}}
+		  ],
+		  xkey: 'y',
+		  ykeys: ['a'],
+		  labels: ['Ocurrencias'],
+		  barColors: ['#3399CC']
+		});
+	</script>

@@ -1,0 +1,55 @@
+.explicacion {
+	font-family: 'Droid Sans', Helvetica, Arial, sans-serif !important;
+	font-weight: bold !important;
+}
+.prueba {
+    text-align: left !important;
+  }
+
+.sinnegrita {
+	font-weight: normal !important;
+}
+  
+.starter-template {
+ padding: 40px 15px;
+  text-align: left;
+}
+
+
+body { /* Blue = #00aaf7;  6acefa 9bddfc*/
+  background: -webkit-linear-gradient(#9bddfc, white) !important; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#9bddfc, white) !important; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#9bddfc, white) !important; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#9bddfc, white) !important; /* Standard syntax */
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lobster', Georgia, Times, serif;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 26px;
+}
+
+h3 {
+    color: #686868 !important;
+}
+ 
+ /* HTML tag: body
+	class: 	  .body
+	id:		  #body
+*/

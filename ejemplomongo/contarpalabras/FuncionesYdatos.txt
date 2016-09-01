@@ -1,0 +1,92 @@
+- Funciones y datos que podemos obtener con las librerías:
+------------
+Trendings
+------------
+// ParseTweetsAll receives a list of tweets and returns a list of pairs [word,value]
+// "value" = number of ocurrences of "word"
+func ParseTweetsAll (tweets []twittertypes.Tweet) WordsList 
+
+// ParseTweetsKeyword receives a list of tweets, filters it by 'keyword' and returns a list of pairs [word, value]
+// "value" = number of ocurrences of "word"
+func ParseTweetsKeyword (tweets []twittertypes.Tweet, keyword string) WordsList 
+
+// GetTweetsRange gets from the collection the tweets în the time period determined by [start, end]
+func GetTweetsRange (colec mgo.Collection, start, end time.Time) []twittertypes.Tweet {
+
+// GetTweetsKeyword obtains the tweets containing 'keyword' in the collection
+func GetTweetsKeyword (colec mgo.Collection, keyword string) []twittertypes.Tweet 
+
+// GetTweetsVerified obtains all the Tweets with Verified User from a collection 
+func GetTweetsVerified (colec mgo.Collection) []twittertypes.Tweet
+
+// GetIntervalsN returns a list of 'n' almost-equal Intervals in the [start, end] Interval (the last interval can be bigger)
+func GetIntervalsN (start, end time.Time, n int64) []Interval
+
+// GetIntervalsLen returns a list of intervals of 'len' duration (the last interval duration could be smaller than the others)
+func GetIntervalsLen (start, end time.Time, length time.Duration) []Interval
+
+// ListVerifiedUsers returns a map [VerifiedUser, numTweets] of the Verified Users and their number of tweets in the list
+func ListVerifiedUsers (tweets []twittertypes.Tweet) map[int64]VerifiedUser
+
+------------
+Profiles
+------------
+// GetMostRetweetedAndFavorited returns the 5 most retweeted tweets and the 5 most favorited tweets in the collection
+func GetMostRetweetedAndFavorited (colec mgo.Collection) Popularity
+
+// GetCountryAndStateByCoordinates returns the country and state/province of the [latitud,longitud] given
+func GetCountryAndStateByCoordinates(lat float64, long float64) CountryAndState
+
+// GetFollowersByScreenNameToDB gets the 'followers' from the 'screenName' user and stores it in the DB
+func GetFollowersByScreenNameToDB (c mgo.Collection, screenName string) int
+
+// GetFollowersByIDToDB gets the 'followers' from the 'id' user and stores it in the DB
+func GetFollowersByIDToDB (c mgo.Collection, id int64) int
+
+// GetFriendsByIDToDB gets the 'friends' from the 'id' user and stores it in the DB
+func GetFriendsByIDToDB (c mgo.Collection, id int64) int
+
+// GetFriendsByScreenNameToDB gets the 'friends' from the 'screenName' user and stores it in the DB
+func GetFriendsByScreenNameToDB (c mgo.Collection, screenName string) int
+
+// GetUserByScreenName gets the Twitter Profile corresponding to the given 'screenName'
+func GetUserByScreenName (screenName string) twittertypes.UserProfile
+
+// GetUserByID gets the Twitter Profile corresponding to the given 'id'
+func GetUserByID (id int64) twittertypes.UserProfile
+
+// GetTimelineToDB gets the 'maxTweets' last Tweets from a Twitter Timeline
+func GetTimelineToDB (colec mgo.Collection, screenName string, maxTweets int)
+
+// GetTweetsPerDay calculates the number of tweets per day, the average, the total days and the total tweets obtained
+func GetTweetsPerDay (colec mgo.Collection) TweetsFrequency
+
+// GetLocation returns the location provided by the user in the profile
+func GetLocation (user twittertypes.UserProfile) string 
+
+// GenderFromName tries to determine the gender from the person named 'name'
+func GenderFromName(name string) (gender Gender)
+
+-------------------------------------------
+RESUMEN DE DATOS QUE SE PUEDEN CONSEGUIR (para algunos hace falta programar un poco)
+-------------------------------------------
+- Obtener TODOS los tweets de la DB
+- Obtener los tweets que contienen una 'keyword'
+- Obtener una lista ordenada de [palabras, ocurrencias] de una lista de tweets dada
+- Obtener los tweets en un rango de tiempo dado
+	* Por tamaño del intervalo
+	* Por numero de intervalos
+- Obtener los tweets de usuarios verificados de una lista de tweets dada
+-------------------------------------------
+- Obtener perfil de usuario de twitter
+	* Por ID
+	* Por Screen_name
+- Obtener N últimos tweets de la timeline de un usuario de twitter dado su screen_name
+- Calcular la media de tweets/dia de los N últimos tweets de un usuario
+- Leer la localización de un perfil de twitter
+- Calcular la localización (pais y provincia) dada la geo-localización de los últimos tweets
+- Calcuar el género con un % de acierto preguntando a la API de genderize.
+- Obtener los "followers" y "following" de un usuario dado
+	* Por ID
+	* Por Screen_name
+- Calcular los 5 tweets más "retweeteds" y los 5 tweets más "favoriteds" de una lista de la BD

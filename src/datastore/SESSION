@@ -1,0 +1,19 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="11">
+            <File firstVisibleLine="76" xOffset="0" scrollWidth="952" startPos="3603" endPos="3529" selMode="0" lang="go" encoding="-1" filename="C:\golang\ejemplomongo\contarpalabras\capturador.go" backupFilePath="" originalFileLastModifTimestamp="1434446170" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1096" startPos="10748" endPos="10752" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\trendings\trendings.go" backupFilePath="" originalFileLastModifTimestamp="1435066711" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1088" startPos="2304" endPos="2318" selMode="0" lang="go" encoding="-1" filename="C:\golang\ejemplomongo\contarpalabras\procesador.go" backupFilePath="" originalFileLastModifTimestamp="1434032223" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1256" startPos="34868" endPos="34868" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\profiles\profiles.go" backupFilePath="" originalFileLastModifTimestamp="1435842304" />
+            <File firstVisibleLine="208" xOffset="0" scrollWidth="1072" startPos="6324" endPos="6324" selMode="0" lang="go" encoding="-1" filename="C:\golang\perfiles\perfiles.go" backupFilePath="" originalFileLastModifTimestamp="1434035392" />
+            <File firstVisibleLine="72" xOffset="0" scrollWidth="920" startPos="3215" endPos="3215" selMode="0" lang="HTML" encoding="-1" filename="C:\golang\ejemplomongo\contarpalabras\web\starter-template\index.html" backupFilePath="" originalFileLastModifTimestamp="1434021824" />
+            <File firstVisibleLine="747" xOffset="0" scrollWidth="1632" startPos="25485" endPos="25485" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\timelines\timelines.go" backupFilePath="" originalFileLastModifTimestamp="1435836572" />
+            <File firstVisibleLine="6" xOffset="0" scrollWidth="1216" startPos="807" endPos="807" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\datastore\generador.go" backupFilePath="" originalFileLastModifTimestamp="1435830295" />
+            <File firstVisibleLine="8" xOffset="0" scrollWidth="864" startPos="277" endPos="277" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\datastore\analizador.go" backupFilePath="" originalFileLastModifTimestamp="1435835349" />
+            <File firstVisibleLine="51" xOffset="0" scrollWidth="1248" startPos="2853" endPos="2853" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\datastore\verificador.go" backupFilePath="" originalFileLastModifTimestamp="1435849096" />
+            <File firstVisibleLine="48" xOffset="0" scrollWidth="1104" startPos="1793" endPos="737" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\datastore\agetest.go" backupFilePath="" originalFileLastModifTimestamp="1435756526" />
+            <File firstVisibleLine="104" xOffset="0" scrollWidth="776" startPos="2982" endPos="2982" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\datastore\gendertest.go" backupFilePath="" originalFileLastModifTimestamp="1435842351" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

@@ -1,0 +1,17 @@
+41.512088
+{
+	"distance":0,
+	"adminCode1":"52",
+	"countryName":"Spain",
+	"countryCode":"ES",
+	"codes":[
+				{
+					"code":"52",
+					"type":"FIPS10-4"
+				},
+				{	
+					"code":"AR",
+					"type":"ISO3166-2"
+				}
+			],
+	"adminName1":"Aragon"}

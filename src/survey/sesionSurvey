@@ -1,0 +1,17 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="9">
+            <File firstVisibleLine="27" xOffset="0" scrollWidth="1112" startPos="1382" endPos="1382" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\bootstrap\templates.go" backupFilePath="" originalFileLastModifTimestamp="1406624212" />
+            <File firstVisibleLine="470" xOffset="0" scrollWidth="1056" startPos="15262" endPos="15262" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\survey\twitterlogin.go" backupFilePath="" originalFileLastModifTimestamp="1407758629" />
+            <File firstVisibleLine="6" xOffset="0" scrollWidth="368" startPos="572" endPos="572" selMode="0" lang="Normal Text" encoding="-1" filename="C:\golang\src\survey\app.yaml" backupFilePath="" originalFileLastModifTimestamp="1407409799" />
+            <File firstVisibleLine="141" xOffset="0" scrollWidth="632" startPos="2635" endPos="2635" selMode="0" lang="CSS" encoding="-1" filename="C:\golang\src\survey\css\cover.css" backupFilePath="" originalFileLastModifTimestamp="1407761480" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="3584" startPos="3502" endPos="3094" selMode="0" lang="HTML" encoding="-1" filename="C:\golang\src\survey\html\cover.html" backupFilePath="" originalFileLastModifTimestamp="1407761086" />
+            <File firstVisibleLine="22" xOffset="0" scrollWidth="808" startPos="916" endPos="922" selMode="0" lang="CSS" encoding="-1" filename="C:\golang\src\survey\css\survey.css" backupFilePath="" originalFileLastModifTimestamp="1407493984" />
+            <File firstVisibleLine="83" xOffset="0" scrollWidth="1816" startPos="24233" endPos="24233" selMode="0" lang="HTML" encoding="-1" filename="C:\golang\src\survey\html\survey.html" backupFilePath="" originalFileLastModifTimestamp="1407761095" />
+            <File firstVisibleLine="10" xOffset="0" scrollWidth="4048" startPos="5551" endPos="5551" selMode="0" lang="HTML" encoding="-1" filename="C:\golang\src\survey\html\result.html" backupFilePath="" originalFileLastModifTimestamp="1407761101" />
+            <File firstVisibleLine="140" xOffset="0" scrollWidth="632" startPos="2646" endPos="2646" selMode="0" lang="CSS" encoding="-1" filename="C:\golang\src\survey\css\result.css" backupFilePath="" originalFileLastModifTimestamp="1407412595" />
+            <File firstVisibleLine="29" xOffset="0" scrollWidth="1328" startPos="2353" endPos="2353" selMode="0" lang="go" encoding="-1" filename="C:\golang\src\bootstrap\bootstrap-3.2.0-dist\templates\portapapeles.go" backupFilePath="" originalFileLastModifTimestamp="1407755343" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

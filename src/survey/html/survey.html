@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+	
+
+    <title>¿Qué Twittero eres?</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="//fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+	
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <!-- Custom styles for this template -->
+    <link href="../css/bootstrap-formhelpers.css" rel="stylesheet">
+	<link href="../css/datepicker3.css" rel="stylesheet">
+	<link href="../css/survey.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+	             <a class="navbar-brand" href="/"> <img src="../img/profilizeme-04.png"></a>	
+		  
+      </div>
+    </div>
+
+    <div class="container">
+	  <h3> ¡Hola {{.ScreenName}}! <small class="explicacion">&nbsp&nbsp&nbsp&nbspCuéntanos un poco más sobre tu personalidad para saber qué tipo de Twittero eres. </small></h3>
+      <div class="starter-template">
+	  
+		<form id="defaultForm" action="/results/" class="form-horizontal" role="form" method="POST"> <!-- Cambiar por POST para no ver los datos en la URL -->
+
+			<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3>Datos personales<small class="explicacion">&nbsp&nbsp&nbsp&nbspPrimero necesitamos saber un poco sobre ti</small></h3>
+			</div>
+				<br>
+			
+				<div class="form-group">
+					<label for="radiogender" class="col-xs-offset-1 col-sm-offset-0 col-xs-3 col-sm-2 control-label">Género </label>
+						<div class="checkbox">
+							<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6">
+							<p class="col-xs-5 col-sm-3"><input type="radio" name="gender" id="radiogender" value="Hombre"> Hombre</p>
+							<p class="col-xs-5 col-sm-3"><input type="radio" name="gender" id="radiogender" value="Mujer"> Mujer&nbsp</p>
+							</div>
+						</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-offset-1 col-sm-offset-0 col-sm-2 control-label">Fecha de nacimiento</label>
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3">						
+							<div class="input-group date" id="borndategroup">
+								<input type="text" name="borndate" class="form-control" onfocus=this.blur()>
+								<span class=" input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+						</div>
+				</div>
+				
+			
+				<div class="form-group">
+					<label for="country" class="col-xs-offset-1 col-sm-offset-0 col-sm-2 control-label">País de residencia</label>
+					<div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3">
+						<select class="form-control bfh-countries" name="country" id="country" ></select>
+					</div>
+				</div>
+			</div>
+			</br>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h3>Personalidad<small class="explicacion">&nbsp&nbsp&nbsp&nbspPara saber qué tipo de Twitter@ eres necesitamos saber algunos rasgos de tu personalidad Twittera</small></h3>
+			</div>
+			
+			</br>
+			<div class="form-group">
+				<p for="pers1" class="col-sm-7"><!--Responde a las pregunas de 1 (poco) a 5 (mucho) --></p>
+				<div class="col-sm-5 hidden-xs">
+					<p class="col-sm-1">Poco</p><p class="col-sm-1"></p>
+					<p class="col-sm-1">1</p>
+					<p class="col-sm-1">2</p>
+					<p class="col-sm-1">3</p>
+					<p class="col-sm-1">4</p>
+					<p class="col-sm-1">5</p>	
+					<p class="col-sm-1">Mucho</p>
+				</div>
+				<div>
+					<p class="col-xs-offset-1 col-xs-10 visible-xs-block">&nbsp&nbsp&nbsp&nbspPuntua del 1 (poco) a 5 (mucho)</p>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="pers1" class="control-label col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-7">&nbsp&nbspEn tu día a día ¿Te gusta estar rodeado e interactuar con la gente?</label>
+				<div class="col-xs-12 visible-xs-block">
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1">1</p>
+					<p class="col-xs-1">2</p>
+					<p class="col-xs-1">3</p>
+					<p class="col-xs-1">4</p>
+					<p class="col-xs-1">5</p>	
+					<p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p>
+				</div>
+				<div class="checkbox col-xs-12 col-sm-5">
+					<p class="visible-xs-block col-xs-offset-1"></p>
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers1" id="pers1" value="1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers1" id="pers1" value="2"></p>
+					<p class="col-xs-1"><input type="radio" name="pers1" id="pers1" value="3"></p>
+					<p class="col-xs-1"><input type="radio" name="pers1" id="pers1" value="4"></p>
+					<p class="col-xs-1"><input type="radio" name="pers1" id="pers1" value="5"></p>
+					<p class="visible-xs-block col-xs-5"></p>					
+				</div>
+			</div>
+
+			
+			<div class="form-group">
+				<label for="pers2" class="control-label col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-7">&nbsp&nbsp¿Mantienes la calma en situaciones de tensión?</label>				
+				<div class="col-xs-12 visible-xs-inline">
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1">1</p>
+					<p class="col-xs-1">2</p>
+					<p class="col-xs-1">3</p>
+					<p class="col-xs-1">4</p>
+					<p class="col-xs-1">5</p>	
+					<p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p>
+				</div><div class="col-xs-12 col-sm-5">
+					<p class="visible-xs-block col-xs-offset-1"></p>
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers2" id="pers2" value="1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers2" id="pers2" value="2"></p>
+					<p class="col-xs-1"><input type="radio" name="pers2" id="pers2" value="3"></p>
+					<p class="col-xs-1"><input type="radio" name="pers2" id="pers2" value="4"></p>
+					<p class="col-xs-1"><input type="radio" name="pers2" id="pers2" value="5"></p>
+					<p class="col-xs-1"></p>					
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="pers3" class="control-label col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-7">&nbsp&nbspAnte un problema, ¿piensas que siempre hay solución y tratas de buscarle el lado bueno?</label>
+				<div class="col-xs-12 visible-xs-inline">
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1">1</p>
+					<p class="col-xs-1">2</p>
+					<p class="col-xs-1">3</p>
+					<p class="col-xs-1">4</p>
+					<p class="col-xs-1">5</p>	
+					<p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<p class="visible-xs-block col-xs-offset-1"></p>
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers3" id="pers3" value="1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers3" id="pers3" value="2"></p>
+					<p class="col-xs-1"><input type="radio" name="pers3" id="pers3" value="3"></p>
+					<p class="col-xs-1"><input type="radio" name="pers3" id="pers3" value="4"></p>
+					<p class="col-xs-1"><input type="radio" name="pers3" id="pers3" value="5"></p>
+					<p class="col-xs-1"></p>					
+				</div>
+			</div>	
+			
+			<div class="form-group">
+				<label for="pers4" class="control-label col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-7">&nbsp&nbspCuando estás en grupo, ¿Te gusta tomar la iniciativa y proponer cosas a los demás?</label>
+				<div class="col-xs-12 visible-xs-inline">
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1">1</p>
+					<p class="col-xs-1">2</p>
+					<p class="col-xs-1">3</p>
+					<p class="col-xs-1">4</p>
+					<p class="col-xs-1">5</p>	
+					<p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<p class="visible-xs-block col-xs-offset-1"></p>
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers4" id="pers4" value="1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers4" id="pers4" value="2"></p>
+					<p class="col-xs-1"><input type="radio" name="pers4" id="pers4" value="3"></p>
+					<p class="col-xs-1"><input type="radio" name="pers4" id="pers4" value="4"></p>
+					<p class="col-xs-1"><input type="radio" name="pers4" id="pers4" value="5"></p>
+					<p class="col-xs-1"></p>					
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="pers5" class="control-label col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-7">&nbsp&nbspPara realizar una tarea, ¿te paras a pensar los pasos que vas a seguir antes de empezar?</label>
+				<div class="col-xs-12 visible-xs-inline">
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1">1</p>
+					<p class="col-xs-1">2</p>
+					<p class="col-xs-1">3</p>
+					<p class="col-xs-1">4</p>
+					<p class="col-xs-1">5</p>	
+					<p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p><p class="col-xs-1"></p>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<p class="visible-xs-block col-xs-offset-1"></p>
+					<p class="col-xs-1"></p><p class="col-xs-1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers5" id="pers5" value="1"></p>
+					<p class="col-xs-1"><input type="radio" name="pers5" id="pers5" value="2"></p>
+					<p class="col-xs-1"><input type="radio" name="pers5" id="pers5" value="3"></p>
+					<p class="col-xs-1"><input type="radio" name="pers5" id="pers5" value="4"></p>
+					<p class="col-xs-1"><input type="radio" name="pers5" id="pers5" value="5"></p>
+					<p class="col-xs-1"></p>					
+				</div>
+			</div>
+			</div>
+			
+			</br>
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h3>Uso de Twitter<small class="explicacion">&nbsp&nbsp&nbsp&nbspCuéntanos que harías en estas situaciones en Twitter</small></h3>
+			</div>
+			
+			</br>
+
+			<div class="form-group">
+	
+				<div class="col-xs-12">
+				<label for="situacion1" class="prueba col-sm-12 control-label">&nbsp&nbsp<b><u>Situación 1:</u> Asistes a un concierto y vas a subir una foto del grupo a Twitter</b></label>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion1" id="situacion1" value="1"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspSubes la foto, mencionas a tus amigos, al grupo de música, al festival, al recinto, pones la ubicación...</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion1" id="situacion1" value="3"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspSubes la foto y sólo mencionas a tus amigos y al grupo de música</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion1" id="situacion1" value="5"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspSubes la foto pero no mencionas a nadie</p>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				</br>
+				<div class="col-xs-12">
+				<label for="situacion2" class="prueba col-sm-12 control-label">&nbsp&nbsp<u>Situación 2:</u> Entras en Twitter y ves que uno de tus amigos está discutiendo con un personaje famoso</label>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion2" id="situacion2" value="1"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspEntras en la discusión y defiendes enérgicamente tu opinión</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion2" id="situacion2" value="3"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspDas tu opinión sin meterte demasiado en la discusión</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion2" id="situacion2" value="5"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspLe comentas tu opinión a tu amigo por mensaje privado y no participas en la discusión</p>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				</br>
+				<div class="col-xs-12">
+				<label for="situacion3" class="prueba col-sm-12 control-label">&nbsp&nbsp<u>Situación 3:</u> A primera hora de la mañana lees en Twitter que ese día el transporte público que ibas a usar está en huelga</label>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion3" id="situacion3" value="1"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspPiensas que es un buen día para coger la bici o caminar y así haces un poco de ejercicio</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion3" id="situacion3" value="3"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspAunque entiendes los derechos de los trabajadores, piensas que para ti ya no empieza bien el día</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion3" id="situacion3" value="5"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspEl día ya está arruinado y te quejas respondiendo al Tweet donde leíste la noticia</p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				</br>
+				<div class="col-xs-12">
+				<label for="situacion4" class="prueba col-xs-12 control-label">&nbsp&nbsp<u>Situación 4:</u> En tu uso diario de Twitter sueles:</label>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion4" id="situacion4" value="1"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspSacar temas de debate que generan conversaciones con muchas respuestas</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion4" id="situacion4" value="3"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspLeer muchos Tweets y retweeteas aquellos que te parecen más interesantes</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion4" id="situacion4" value="5"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspLeer muchos Tweets para conocer los temas de actualidad pero no te metes en las conversaciones</p>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				</br>
+				<div class="col-xs-12">
+				<label for="situacion5" class="prueba col-xs-12 control-label">&nbsp&nbsp<u>Situación 5:</u> En tu cuenta de Twitter, ¿cómo organizas tus contactos y tus Tweets?</label>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion5" id="situacion5" value="1"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspCreas listas según temas similares y las revisas preocupándote de clasificar los nuevos perfiles</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion5" id="situacion5" value="3"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspSigues listas creadas por otros usuarios y no te preocupas de los perfiles que contienen</p>
+				</div>
+				<div class=" col-xs-12">
+					<p class="control-label col-xs-1"><input type="radio" name="situacion5" id="situacion5" value="5"></p>
+					<p class="control-label sinnegrita col-xs-10" style="text-align:left">&nbsp&nbspNunca he utilizado las listas o casi nunca las utilizo</p>
+				</div>
+			</div>
+			</div>
+
+			<div class="panel panel-default">
+			<div class="panel-heading">
+			<h3>Intereses en Twitter<small class="explicacion">&nbsp&nbsp&nbsp&nbspCuéntanos sobre qué temas comentas en Twitter</small></h3>
+			</div>			
+			<br>
+			<div class="form-group">
+				<p class="col-sm-12">&nbsp&nbsp&nbsp&nbspSelecciona entre 2 y 5 opciones</p>
+				<div class="col-sm-12 col-sm-offset-1">
+						
+						<div class="col-sm-4">
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="famosos" name="intereses[]"> Famosos y sociedad</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="futbol" name="intereses[]"> Fútbol</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="tenis" name="intereses[]"> Tenis</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="baloncesto" name="intereses[]"> Baloncesto</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="otrosdeportes" name="intereses[]"> Otros Deportes</label><br>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="tecnologia" name="intereses[]"> Tecnología</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="lectura" name="intereses[]"> Lectura</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="cine" name="intereses[]"> Cine</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="arte" name="intereses[]"> Arte</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="anime" name="intereses[]"> Anime/Manga</label><br>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="videojuegos" name="intereses[]"> Videojuegos</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="musica" name="intereses[]"> Música</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="series" name="intereses[]"> Series TV</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="marketing" name="intereses[]"> Marketing</label><br>
+							<label class="control-label sinnegrita"><input type="checkbox" id="intereses[]" value="moda" name="intereses[]"> Moda</label><br>
+						</div>
+				</div>
+			</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+			    </div>
+			</div>
+		
+		</form>	
+					
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!--<script src="/resources/js/moment.js"></script>-->
+	<!-- <script src="/resources/bootstrap-3.2.0-dist/js/bootstrap-datepicker.js"></script> -->
+	<script src="../js/bootstrap-datepicker.js"></script>
+	<script src="../js/bootstrap-formhelpers-countries.es_ES.js"></script>
+	<script src="../js/bootstrap-formhelpers-countries.js"></script>
+	<script src="../js/bootstrap-formhelpers.js"></script>
+	
+	<!-- <script type="text/javascript" src="/resources/js/bootstrapValidator.js"></script> -->
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+	
+
+
+<script>
+$('#borndategroup').datepicker({
+		format: "yyyy/mm/dd",
+		weekStart: "1",
+		startView: "decade",
+		orientation: "top left",
+		language: "es",
+		startDate: "1900-01-01",
+		endDate: "2014-01-01",
+		autoclose: true,
+		todayHighlight: true,
+		keyboardNavigation: false,
+});
+$(document).ready(function() {
+   
+    $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			gender: {
+				message: 'Selecciona un género',
+				validators: {
+					notEmpty: {
+						message: 'El género no puede estar vacio',
+					}
+				}
+			},
+			country: {
+				message: 'Selecciona un país de residencia',
+				validators: {
+					notEmpty: {
+						message: 'El país no puede estar vacío',
+					}
+				}
+			},
+			pers1: {
+				message: 'Selecciona un valor de 1 a 5',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona un valor',
+					}
+				}
+			},
+			pers2: {
+				message: 'Selecciona un valor de 1 a 5',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona un valor',
+					}
+				}
+			},
+			pers3: {
+				message: 'Selecciona un valor de 1 a 5',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona un valor',
+					}
+				}
+			},
+			pers4: {
+				message: 'Selecciona un valor de 1 a 5',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona un valor',
+					}
+				}
+			},
+			pers5: {
+				message: 'Selecciona un valor de 1 a 5',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona un valor',
+					}
+				}
+			},
+			situacion1: {
+				message: 'Selecciona una respuesta',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona una opcion',
+					}
+				}
+			},
+			situacion2: {
+				message: 'Selecciona una respuesta',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona una opcion',
+					}
+				}
+			},
+			situacion3: {
+				message: 'Selecciona una respuesta',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona una opcion',
+					}
+				}
+			},
+			situacion4: {
+				message: 'Selecciona una respuesta',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona una opcion',
+					}
+				}
+			},
+			situacion5: {
+				message: 'Selecciona una respuesta',
+				validators: {
+					notEmpty: {
+						message: 'Selecciona una opcion',
+					}
+				}
+			},
+			borndate: {
+				message: 'Selecciona una fecha',
+				validators: {
+					notEmpty: {
+						message: 'La fecha no puede estar vacía',
+					},
+					date: {
+                        format: 'YYYY/MM/DD'
+                    }
+				}
+			},
+			'intereses[]': {
+                validators: {
+                    choice: {
+                        min: 1,
+                        max: 5,
+                        message: 'Selecciona entre 2 y 5 intereses'
+                    }
+                }
+            },
+        }
+    });
+	
+    $('#borndategroup')
+        .on('changeDate', function(e) {
+            // Validate the date when user change it
+            $('#defaultForm').bootstrapValidator('revalidateField', 'borndate');
+      });
+	  
+});
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53702258-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
