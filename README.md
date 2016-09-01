@@ -1,2 +1,3 @@
 # Proyecto Tuit.in
-Analizador de información de Twitter
+Analizador de subtrendings y perfiles de Twitter.
+
