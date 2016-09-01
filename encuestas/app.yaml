@@ -1,0 +1,42 @@
+application: quetwitteroeres
+version: 1
+runtime: go
+api_version: go1
+
+handlers:  
+- url: /_ah/remote_api
+  script: _go_app
+  login: admin
+  
+# Serve css files.
+- url: /css/(.*\.css)
+  mime_type: text/css
+  static_files: css/\1
+  upload: css/(.*\.css)
+  application_readable: true
+ 
+# Serve js files.
+- url: /js/(.*\.js)
+  mime_type: text/js
+  static_files: js/\1
+  upload: js/(.*\.js)
+  application_readable: true
+  
+# Serve image files.
+- url: /img/(.*\.jpg)
+  mime_type: image/jpeg
+  static_files: img/\1
+  upload: img/(.*\.jpg)
+  application_readable: true
+
+# Serve image files.
+- url: /img/(.*\.png)
+  mime_type: image/png
+  static_files: img/\1
+  upload: img/(.*\.png)
+  application_readable: true
+  
+- url: /.*
+  script: _go_app
+  
+

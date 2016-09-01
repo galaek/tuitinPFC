@@ -1,0 +1,1 @@
+###En esta carpeta encontramos todos los archivos de la aplicación desarrollada para Google App Engine de las encuestas.
